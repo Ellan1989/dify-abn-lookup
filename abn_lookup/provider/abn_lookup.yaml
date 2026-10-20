@@ -1,0 +1,39 @@
+identity:
+  author: ellan1989
+  name: abn_lookup
+  label:
+    en_US: ABN Lookup
+    zh_Hans: ABN 企业查询
+  description:
+    en_US: >-
+      Look up Australian business details from an ABN or ACN using the
+      official ABR ABN Lookup API, and convert an ACN to its equivalent ABN.
+    zh_Hans: >-
+      通过 ABR 官方 ABN Lookup API 用 ABN 或 ACN 查询澳洲企业信息，
+      并支持 ACN 到 ABN 的本地换算。
+  icon: icon.svg
+  tags:
+    - utilities
+    - business
+credentials_for_provider:
+  abn_api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: ABN Lookup API key
+      zh_Hans: ABN Lookup API 密钥
+    placeholder:
+      en_US: Your ABR ABN Lookup API key
+      zh_Hans: 你的 ABR ABN Lookup API 密钥
+    help:
+      en_US: >-
+        Apply for a free API key on the ABR developer portal
+        (https://api.abn.business.gov.au). The key is sent as the x-vr-key
+        request header when calling the ABN Lookup API.
+      zh_Hans: >-
+        在 ABR 开发者门户（https://api.abn.business.gov.au）免费申请 API 密钥，
+        该密钥以 x-vr-key 请求头的方式调用 ABN Lookup API。
+    url: https://api.abn.business.gov.au
+extra:
+  python:
+    source: provider/abn_lookup.py

@@ -1,0 +1,49 @@
+identity:
+  name: acn_to_abn
+  author: ellan1989
+  label:
+    en_US: ACN to ABN Converter
+    zh_Hans: ACN 转 ABN 换算
+description:
+  human:
+    en_US: >-
+      Convert a 9-digit ACN (ASIC company number) to its equivalent 11-digit
+      ABN, and validate the checksum of either number. Runs locally, no API
+      call is made.
+    zh_Hans: >-
+      将 9 位 ACN（ASIC 公司号）换算为对应的 11 位 ABN，并校验两种号码的合法性。
+      纯本地计算，不调用任何 API。
+  llm: >-
+    Convert a 9-digit ACN to its equivalent 11-digit ABN, or validate whether
+    an ABN/ACN passes its checksum. No API call, instant result.
+parameters:
+  - name: acn
+    type: string
+    required: true
+    label:
+      en_US: ACN
+      zh_Hans: ACN
+    placeholder:
+      en_US: "e.g. 479760133"
+      zh_Hans: 如 479760133
+    human_description:
+      en_US: A 9-digit ACN (spaces are allowed and ignored).
+      zh_Hans: 9 位 ACN（允许带空格，会自动忽略）。
+    llm_description: A 9-digit ASIC company number (ACN). Spaces are allowed.
+    form: llm
+extra:
+  python:
+    source: tools/acn_to_abn_tool.py
+output_schema:
+  acn:
+    type: string
+    description: The normalized 9-digit ACN.
+  acn_valid:
+    type: boolean
+    description: Whether the ACN passes its checksum validation.
+  abn:
+    type: string
+    description: The equivalent 11-digit ABN derived from the ACN.
+  abn_valid:
+    type: boolean
+    description: Whether the derived ABN passes its checksum validation.

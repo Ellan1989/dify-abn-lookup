@@ -1,0 +1,80 @@
+identity:
+  name: abn_lookup
+  author: ellan1989
+  label:
+    en_US: ABN Lookup
+    zh_Hans: ABN 企业信息查询
+description:
+  human:
+    en_US: >-
+      Look up an Australian business by ABN (11 digits) or ACN (9 digits) and
+      return its registered name, status, entity type, GST registration and
+      address, using the official ABR ABN Lookup API.
+    zh_Hans: >-
+      用 ABN（11 位）或 ACN（9 位）查询澳洲企业的注册名称、经营状态、实体类型、
+      GST 注册与地址等信息（ABR 官方 ABN Lookup API）。
+  llm: >-
+    Look up an Australian business by ABN or ACN. Input an 11-digit ABN or a
+    9-digit ACN; returns the entity name, ABN/ACN identifiers, status, entity
+    type, GST registration and state/postcode of the registered address.
+parameters:
+  - name: abn_or_acn
+    type: string
+    required: true
+    label:
+      en_US: ABN or ACN
+      zh_Hans: ABN 或 ACN
+    placeholder:
+      en_US: "e.g. 51824753556 or 479760133"
+      zh_Hans: 如 51824753556 或 479760133
+    human_description:
+      en_US: An 11-digit ABN or a 9-digit ACN (spaces are allowed and ignored).
+      zh_Hans: 11 位 ABN 或 9 位 ACN（允许带空格，会自动忽略）。
+    llm_description: An 11-digit ABN or a 9-digit ACN of an Australian business. Spaces are allowed.
+    form: llm
+  - name: include_history
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Include history
+      zh_Hans: 包含历史记录
+    human_description:
+      en_US: Also include historical details (previous names, status history) when available.
+      zh_Hans: 可选，附带历史信息（曾用名、状态变更记录）。
+    llm_description: Whether to include historical details such as previous entity names. Default false.
+    form: llm
+extra:
+  python:
+    source: tools/abn_lookup_tool.py
+output_schema:
+  abn:
+    type: string
+    description: The 11-digit Australian Business Number.
+  acn:
+    type: string
+    description: The 9-digit ASIC company number, when the entity is a company.
+  entity_name:
+    type: string
+    description: Registered main name of the entity.
+  other_business_names:
+    type: array[string]
+    description: Business names registered under this ABN, if any.
+  status:
+    type: string
+    description: Entity status, e.g. Active or Cancelled.
+  entity_type:
+    type: string
+    description: Entity type description, e.g. Australian Public Company.
+  gst_registered:
+    type: boolean
+    description: Whether the entity is registered for GST.
+  gst_effective_from:
+    type: string
+    description: GST registration effective date (YYYY-MM-DD), if registered.
+  address_state:
+    type: string
+    description: State of the registered address, e.g. NSW.
+  address_postcode:
+    type: string
+    description: Postcode of the registered address.

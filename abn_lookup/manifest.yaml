@@ -1,0 +1,45 @@
+author: ellan1989
+created_at: "2026-10-20T00:00:00.000000Z"
+version: 0.0.1
+type: plugin
+name: abn_lookup
+repo: https://github.com/Ellan1989/dify-abn-lookup
+privacy: PRIVACY.md
+contact: Ellan1989@users.noreply.github.com
+verified: false
+network:
+  domains:
+    - api.abn.business.gov.au
+description:
+  en_US: >-
+    Look up Australian business details (entity name, status, entity type, GST
+    registration and address) from an ABN or ACN using the official ABR ABN
+    Lookup API. Also converts an ACN to its equivalent ABN locally.
+  zh_Hans: >-
+    通过澳大利亚商业登记局（ABR）官方 ABN Lookup API，用 ABN 或 ACN 查询澳洲企业的
+    注册名称、经营状态、实体类型、GST 注册与地址等信息，并支持 ACN 与 ABN 的本地换算。
+icon: icon.svg
+label:
+  en_US: ABN Lookup
+  zh_Hans: ABN 企业查询
+meta:
+  arch:
+    - amd64
+    - arm64
+  runner:
+    entrypoint: main.py
+    language: python
+    version: "3.12"
+  version: 0.0.1
+  minimum_dify_version: "1.0.0"
+plugins:
+  tools:
+    - provider/abn_lookup.yaml
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+tags:
+  - utilities
+  - business
