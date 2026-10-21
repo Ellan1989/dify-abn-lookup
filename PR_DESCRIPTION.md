@@ -1,9 +1,3 @@
-# PR 标题
-
-feat: add ABN Lookup 0.0.1 tool plugin
-
-# PR 正文（按官方模板填写）
-
 # Plugin Submission
 
 ## Plugin information
@@ -82,6 +76,11 @@ companies (e.g. Woolworths Group ABN 88000014675 / ACN 000014675, BHP Group
 ABN 49004028077 / ACN 004028077).
 
 ## Reviewer notes
+
+- Resubmission of #3428, which was closed because the previous PR body accidentally
+  contained two non-English header lines from a local template file. The package is
+  unchanged; this body is pure English per the submission template (verified locally
+  with check-pr-body.py from dify-marketplace-toolkit).
 
 - The ABR endpoint was unreachable from my development network, so live API
   calls against production were verified from an Australian network; payload
