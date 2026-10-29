@@ -35,15 +35,17 @@ extra:
   python:
     source: tools/acn_to_abn_tool.py
 output_schema:
-  acn:
-    type: string
-    description: The normalized 9-digit ACN.
-  acn_valid:
-    type: boolean
-    description: Whether the ACN passes its checksum validation.
-  abn:
-    type: string
-    description: The equivalent 11-digit ABN derived from the ACN.
-  abn_valid:
-    type: boolean
-    description: Whether the derived ABN passes its checksum validation.
+  type: object
+  properties:
+    acn:
+      type: string
+      description: The normalized 9-digit ACN.
+    acn_valid:
+      type: boolean
+      description: Whether the ACN passes its checksum validation.
+    abn:
+      type: string
+      description: The equivalent 11-digit ABN derived from the ACN.
+    abn_valid:
+      type: boolean
+      description: Whether the derived ABN passes its checksum validation.

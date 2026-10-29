@@ -48,33 +48,37 @@ extra:
   python:
     source: tools/abn_lookup_tool.py
 output_schema:
-  abn:
-    type: string
-    description: The 11-digit Australian Business Number.
-  acn:
-    type: string
-    description: The 9-digit ASIC company number, when the entity is a company.
-  entity_name:
-    type: string
-    description: Registered main name of the entity.
-  other_business_names:
-    type: array[string]
-    description: Business names registered under this ABN, if any.
-  status:
-    type: string
-    description: Entity status, e.g. Active or Cancelled.
-  entity_type:
-    type: string
-    description: Entity type description, e.g. Australian Public Company.
-  gst_registered:
-    type: boolean
-    description: Whether the entity is registered for GST.
-  gst_effective_from:
-    type: string
-    description: GST registration effective date (YYYY-MM-DD), if registered.
-  address_state:
-    type: string
-    description: State of the registered address, e.g. NSW.
-  address_postcode:
-    type: string
-    description: Postcode of the registered address.
+  type: object
+  properties:
+    abn:
+      type: string
+      description: The 11-digit Australian Business Number.
+    acn:
+      type: string
+      description: The 9-digit ASIC company number, when the entity is a company.
+    entity_name:
+      type: string
+      description: Registered main name of the entity.
+    other_business_names:
+      type: array
+      items:
+        type: string
+      description: Business names registered under this ABN, if any.
+    status:
+      type: string
+      description: Entity status, e.g. Active or Cancelled.
+    entity_type:
+      type: string
+      description: Entity type description, e.g. Australian Public Company.
+    gst_registered:
+      type: boolean
+      description: Whether the entity is registered for GST.
+    gst_effective_from:
+      type: string
+      description: GST registration effective date (YYYY-MM-DD), if registered.
+    address_state:
+      type: string
+      description: State of the registered address, e.g. NSW.
+    address_postcode:
+      type: string
+      description: Postcode of the registered address.

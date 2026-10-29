@@ -1,6 +1,6 @@
 author: ellan1989
 created_at: "2026-10-20T00:00:00.000000Z"
-version: 0.0.1
+version: 0.0.2
 type: plugin
 name: abn_lookup
 repo: https://github.com/Ellan1989/dify-abn-lookup
@@ -30,7 +30,7 @@ meta:
     entrypoint: main.py
     language: python
     version: "3.12"
-  version: 0.0.1
+  version: 0.0.2
   minimum_dify_version: "1.0.0"
 plugins:
   tools:

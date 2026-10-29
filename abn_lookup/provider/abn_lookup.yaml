@@ -34,6 +34,9 @@ credentials_for_provider:
         在 ABR 开发者门户（https://api.abn.business.gov.au）免费申请 API 密钥，
         该密钥以 x-vr-key 请求头的方式调用 ABN Lookup API。
     url: https://api.abn.business.gov.au
+tools:
+  - tools/abn_lookup_tool.yaml
+  - tools/acn_to_abn_tool.yaml
 extra:
   python:
     source: provider/abn_lookup.py

@@ -1,6 +1,6 @@
 [project]
 name = "abn_lookup"
-version = "0.0.1"
+version = "0.0.2"
 description = "Dify tool plugin: Australian business lookup via the official ABR ABN Lookup API"
 readme = "README.md"
 requires-python = ">=3.12"
